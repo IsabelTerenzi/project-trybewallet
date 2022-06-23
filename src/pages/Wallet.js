@@ -3,12 +3,21 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Header from '../components/Header';
 import { fetchCurrencies } from '../actions';
+import Table from '../components/Table';
 
 class Wallet extends React.Component {
   componentDidMount = () => {
     const { dispatch } = this.props;
     dispatch(fetchCurrencies());
   };
+
+  onInputChange = ({ target }) => {
+    const { name, value } = target;
+    this.setState({ [name]: value },
+      () => {
+        this.verificaBotao();
+      });
+  }
 
   render() {
     const { currencies } = this.props;
@@ -18,11 +27,22 @@ class Wallet extends React.Component {
         <form>
           <label htmlFor="valor">
             Valor:
-            <input data-testid="value-input" type="number" id="valor" name="valor" />
+            <input
+              onChange={ this.onInputChange }
+              data-testid="value-input"
+              type="number"
+              id="valor"
+              name="valor"
+            />
           </label>
           <label htmlFor="descricao">
             Descrição:
-            <input type="text" data-testid="description-input" name="descricao" />
+            <input
+              onChange={ this.onInputChange }
+              type="text"
+              data-testid="description-input"
+              name="descricao"
+            />
           </label>
           <label htmlFor="moeda">
             Moeda:
@@ -50,7 +70,11 @@ class Wallet extends React.Component {
               <option value="saúde">Saúde</option>
             </select>
           </label>
+          <button type="button">
+            Adicionar despesa
+          </button>
         </form>
+        <Table />
       </div>
     );
   }
