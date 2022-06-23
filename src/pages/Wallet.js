@@ -1,7 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Header from '../components/Header';
+import { fetchCurrencies } from '../actions';
 
 class Wallet extends React.Component {
+  componentDidMount = () => {
+    const { getCurrencies } = this.props;
+    getCurrencies();
+  };
+
   render() {
     return (
       <div>
@@ -18,7 +26,7 @@ class Wallet extends React.Component {
           <label htmlFor="moeda">
             Moeda:
             <select id="moeda" name="moeda">
-              <option value="usd">USD</option>
+              <option value="USD">USD</option>
             </select>
           </label>
           <label htmlFor="pagamento">
@@ -45,4 +53,12 @@ class Wallet extends React.Component {
   }
 }
 
-export default Wallet;
+Wallet.propTypes = {
+  getCurrencies: PropTypes.func.isRequired,
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  getCurrencies: () => dispatch(fetchCurrencies()),
+});
+
+export default connect(null, mapDispatchToProps)(Wallet);

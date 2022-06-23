@@ -13,10 +13,10 @@ const initialState = {
 const wallet = (state = initialState, action) => {
   switch (action.type) {
   case CURRENCIES:
-    return {
+    return ({
       ...state,
-      ...action.payload,
-    };
+      currencies: action.payload,
+    });
   default:
     return state;
   }

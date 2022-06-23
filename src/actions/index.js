@@ -1,6 +1,4 @@
 // Coloque aqui suas actions
-// import fetchCurrencies from "../services/fetchAPI";
-
 export const LOGIN = 'LOGIN';
 export const CURRENCIES = 'CURRENCIES';
 
@@ -9,7 +7,18 @@ export const actionLogin = (email) => ({
   payload: email,
 });
 
-export const actionCurrencies = (payload) => ({
+export const actionCurrencies = (currencies) => ({
   type: CURRENCIES,
-  payload,
+  payload: currencies,
 });
+
+export function fetchCurrencies() {
+  return async (dispatch) => {
+    const response = await fetch('https://economia.awesomeapi.com.br/json/all');
+    const json = await response.json();
+    const currencies = Object.keys(json).filter((currency) => currency !== 'USDT');
+    dispatch(actionCurrencies(currencies));
+
+    return response.ok ? Promise.resolve(currencies) : Promise.reject(currencies);
+  };
+}
