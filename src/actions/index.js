@@ -18,7 +18,5 @@ export function fetchCurrencies() {
     const json = await response.json();
     const currencies = Object.keys(json).filter((currency) => currency !== 'USDT');
     dispatch(actionCurrencies(currencies));
-
-    return response.ok ? Promise.resolve(currencies) : Promise.reject(currencies);
   };
 }

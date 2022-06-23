@@ -6,27 +6,30 @@ import { fetchCurrencies } from '../actions';
 
 class Wallet extends React.Component {
   componentDidMount = () => {
-    const { getCurrencies } = this.props;
-    getCurrencies();
+    const { dispatch } = this.props;
+    dispatch(fetchCurrencies());
   };
 
   render() {
+    const { currencies } = this.props;
     return (
       <div>
         <Header />
         <form>
           <label htmlFor="valor">
             Valor:
-            <input data-testid="value-input" type="number" id="valor" />
+            <input data-testid="value-input" type="number" id="valor" name="valor" />
           </label>
           <label htmlFor="descricao">
             Descrição:
-            <input type="text" data-testid="description-input" />
+            <input type="text" data-testid="description-input" name="descricao" />
           </label>
           <label htmlFor="moeda">
             Moeda:
             <select id="moeda" name="moeda">
-              <option value="USD">USD</option>
+              { currencies.map((currency, index) => (
+                <option key={ index } value={ currency }>{ currency }</option>
+              ))}
             </select>
           </label>
           <label htmlFor="pagamento">
@@ -54,11 +57,12 @@ class Wallet extends React.Component {
 }
 
 Wallet.propTypes = {
-  getCurrencies: PropTypes.func.isRequired,
+  dispatch: PropTypes.func.isRequired,
+  currencies: PropTypes.arrayOf.isRequired,
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  getCurrencies: () => dispatch(fetchCurrencies()),
+const mapStateToProps = (state) => ({
+  currencies: state.wallet.currencies,
 });
 
-export default connect(null, mapDispatchToProps)(Wallet);
+export default connect(mapStateToProps)(Wallet);
