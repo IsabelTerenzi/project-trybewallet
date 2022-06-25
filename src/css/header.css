@@ -1,9 +1,12 @@
 .header {
   align-items: center;
-  background-color: black;
-  border: 2px solid black;
+  background-color: rgb(19, 19, 19);
+  border: 2px solid rgb(19, 19, 19);
   color: white;
   display: flex;
   justify-content: space-evenly;
-  margin-bottom: 20px;
+}
+
+.icon-money-header {
+  font-size: 50px;
 }

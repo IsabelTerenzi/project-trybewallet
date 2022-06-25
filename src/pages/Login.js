@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import '../css/login.css';
+import { FcMoneyTransfer } from 'react-icons/fc';
 import { actionLogin } from '../actions/index';
 
 class Login extends React.Component {
@@ -42,37 +43,40 @@ class Login extends React.Component {
     const { isButtonDisabled, email, senha } = this.state;
     return (
       <div>
-        <form className="login">
-          <h1>Login</h1>
-          <label htmlFor="email">
-            Email:
-            <input
-              type="email"
-              id="email"
-              data-testid="email-input"
-              name="email"
-              onChange={ this.onInputChange }
-              value={ email }
-            />
-          </label>
-          <label htmlFor="senha">
-            Senha:
-            <input
-              type="senha"
-              id="senha"
-              data-testid="password-input"
-              name="senha"
-              onChange={ this.onInputChange }
-              value={ senha }
-            />
-          </label>
-          <button
-            type="button"
-            disabled={ isButtonDisabled }
-            onClick={ this.botaoEntrar }
-          >
-            Entrar
-          </button>
+        <form>
+          <div className="login">
+            <h1>Login</h1>
+            <FcMoneyTransfer className="icon-money" />
+            <label htmlFor="email">
+              Email:
+              <input
+                type="email"
+                id="email"
+                data-testid="email-input"
+                name="email"
+                onChange={ this.onInputChange }
+                value={ email }
+              />
+            </label>
+            <label htmlFor="senha">
+              Senha:
+              <input
+                type="senha"
+                id="senha"
+                data-testid="password-input"
+                name="senha"
+                onChange={ this.onInputChange }
+                value={ senha }
+              />
+            </label>
+            <button
+              type="button"
+              disabled={ isButtonDisabled }
+              onClick={ this.botaoEntrar }
+            >
+              Entrar
+            </button>
+          </div>
         </form>
       </div>
     );

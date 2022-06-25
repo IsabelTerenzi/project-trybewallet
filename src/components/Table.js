@@ -43,19 +43,25 @@ class Table extends React.Component {
                  <td>{tag}</td>
                  <td>{method}</td>
                  <td>{Number(value).toFixed(2)}</td>
-                 <td>{exchangeRates[currency].name}</td>
+                 <td>{exchangeRates[currency].name.split('/')[0]}</td>
                  <td>{Number(exchangeRates[currency].ask).toFixed(2) }</td>
                  <td>{ (value * exchangeRates[currency].ask).toFixed(2) }</td>
                  <td>Real</td>
-                 <td>
-                   <button
-                     type="button"
-                     data-testid="delete-btn"
-                     onClick={ () => this.botaoDeleta(id) }
-                   >
-                     Excluir
-                   </button>
-                 </td>
+                 <div>
+                   <td>
+                     <button type="button" className="editar">Editar</button>
+                   </td>
+                   <td>
+                     <button
+                       className="excluir"
+                       type="button"
+                       data-testid="delete-btn"
+                       onClick={ () => this.botaoDeleta(id) }
+                     >
+                       Excluir
+                     </button>
+                   </td>
+                 </div>
                </tr>
              ))}
            </tbody>

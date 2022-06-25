@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import '../css/header.css';
+import { FcMoneyTransfer } from 'react-icons/fc';
 import PropTypes from 'prop-types';
 
 class Header extends React.Component {
@@ -18,6 +19,7 @@ class Header extends React.Component {
     return (
       <div className="header">
         <h1>Trybewallet</h1>
+        <FcMoneyTransfer className="icon-money-header" />
         <h3 data-testid="email-field">{email}</h3>
         <h3>Despesa Total: R$</h3>
         <h3 data-testid="total-field">{this.despesaTotal()}</h3>

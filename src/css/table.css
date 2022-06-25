@@ -1,17 +1,64 @@
-.table {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  padding: 20px;
-}
-
 .form-expense {
   align-items: center;
-  background-color: rgb(92, 92, 92);
-  color: white;
+  background-color: rgb(119, 225, 119);
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   padding: 25px;
 }
+
+.form-expense input, select {
+  margin-left: 8px;
+  padding: 4px;
+}
+
+.form-expense button {
+  background-color: rgb(45, 92, 193);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 10px;
+}
+
+.table {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding: 25px;
+}
+
+.excluir {
+  background-color: rgb(218, 42, 42);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  padding: 10px;
+}
+
+.editar {
+  background-color: rgb(30, 117, 22);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  padding: 10px;
+}
+
+.table td, th {
+  background-color: rgb(27, 26, 26);
+  border: 3px solid rgb(119, 225, 119);
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+body {
+  background-color: rgb(55, 54, 54);
+}
+
