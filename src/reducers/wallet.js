@@ -1,4 +1,7 @@
 // Esse reducer será responsável por tratar o todas as informações relacionadas as despesas
+
+// O reducer irá pegar a ação e determinar como o estado irá mudar.
+
 import { CURRENCIES, EXPENSES, DELETE } from '../actions';
 
 const initialState = {

@@ -1,4 +1,8 @@
 // Coloque aqui suas actions
+
+// Toda interação do usuário na interface da aplicação, precisa gerar uma action, pois o estado global será alterado.
+// Ou seja, um clique em um botão, o preenchimento de um input, todos esses são ações.
+
 export const LOGIN = 'LOGIN';
 export const CURRENCIES = 'CURRENCIES';
 export const EXPENSES = 'EXPENSES';
@@ -44,3 +48,5 @@ export const actionDelete = (id) => ({
   type: DELETE,
   payload: id,
 });
+
+// a Action de delete usa o id como parâmetro, pois dos elementos da tabela, o id é o único que não irá se repetir.

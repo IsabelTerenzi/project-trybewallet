@@ -7,14 +7,10 @@ class Header extends React.Component {
   despesaTotal = () => {
     const { expenses } = this.props;
 
-    const total = expenses.reduce((preValue, currValue) => {
-      const conversao = currValue.value * currValue.exchangeRates[currValue.currency].ask;
+    const total = expenses.reduce((preValue, currValue) => preValue + currValue.value
+      * currValue.exchangeRates[currValue.currency].ask, 0);
 
-      const soma = preValue + conversao;
-      return soma;
-    }, 0);
-
-    return (Math.floor(total * 100) / 100).toFixed(2);
+    return ((total * 100) / 100).toFixed(2);
   }
 
   render() {
