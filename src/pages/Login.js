@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
+import '../css/login.css';
 import { actionLogin } from '../actions/index';
 
 class Login extends React.Component {
@@ -41,7 +42,8 @@ class Login extends React.Component {
     const { isButtonDisabled, email, senha } = this.state;
     return (
       <div>
-        <form>
+        <form className="login">
+          <h1>Login</h1>
           <label htmlFor="email">
             Email:
             <input

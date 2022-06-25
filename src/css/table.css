@@ -1,0 +1,18 @@
+.table {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px;
+}
+
+.form-expense {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    background-color: rgb(92, 92, 92);
+    padding: 25px;
+    color: white;
+}
+
