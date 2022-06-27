@@ -7,7 +7,7 @@
   padding: 25px;
 }
 
-.form-expense input, select {
+.form-expense input , select {
   margin-left: 8px;
   padding: 4px;
 }
@@ -51,7 +51,7 @@
   padding: 10px;
 }
 
-.table td, th {
+.table td , th {
   background-color: rgb(27, 26, 26);
   border: 3px solid rgb(119, 225, 119);
   color: white;
