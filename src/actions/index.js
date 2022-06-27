@@ -7,6 +7,7 @@ export const LOGIN = 'LOGIN';
 export const CURRENCIES = 'CURRENCIES';
 export const EXPENSES = 'EXPENSES';
 export const DELETE = 'DELETE';
+export const EDIT = 'EDIT';
 
 export const actionLogin = (email) => ({
   type: LOGIN,
@@ -47,6 +48,11 @@ export function fetchExpenses(id, expense) {
 export const actionDelete = (id) => ({
   type: DELETE,
   payload: id,
+});
+
+export const actionEdit = (idToEdit) => ({
+  type: EDIT,
+  payload: idToEdit,
 });
 
 // a Action de delete usa o id como parâmetro, pois dos elementos da tabela, o id é o único que não irá se repetir.

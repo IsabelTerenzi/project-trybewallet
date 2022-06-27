@@ -2,7 +2,7 @@
 
 // O reducer irá pegar a ação e determinar como o estado irá mudar.
 
-import { CURRENCIES, EXPENSES, DELETE } from '../actions';
+import { CURRENCIES, EXPENSES, DELETE, EDIT } from '../actions';
 
 const initialState = {
   currencies: [],
@@ -27,6 +27,12 @@ const wallet = (state = initialState, action) => {
     return {
       ...state,
       expenses: state.expenses.filter((expense) => expense.id !== action.payload),
+    };
+  case EDIT:
+    return {
+      ...state,
+      editor: true,
+      idToEdit: action.payload,
     };
   default:
     return state;
